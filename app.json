@@ -1,30 +1,34 @@
 {
-  "expo": {
-    "name": "healthx-app",
-    "slug": "healthx-app",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
+    "expo": {
+        "name": "Healthx",
+        "slug": "healthx",
+        "version": "1.0.0",
+        "orientation": "portrait",
+        "icon": "./src/assets/icon.png",
+        "userInterfaceStyle": "light",
+        "splash": {
+            "image": "./src/assets/splash.png",
+            "resizeMode": "contain",
+            "backgroundColor": "#ffffff"
+        },
+        "assetBundlePatterns": ["**/*"],
+        "ios": {
+            "supportsTablet": true
+        },
+        "android": {
+            "adaptiveIcon": {
+                "foregroundImage": "./src/assets/adaptive-icon.png",
+                "backgroundColor": "#ffffff"
+            },
+            "package": "com.antorr25.healthx"
+        },
+        "web": {
+            "favicon": "./src/assets/favicon.png"
+        },
+        "extra": {
+            "eas": {
+                "projectId": "770532eb-59ba-4e53-955c-79c199196911"
+            }
+        }
     }
-  }
 }
