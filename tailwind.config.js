@@ -35,7 +35,6 @@ module.exports = {
     plugins: [
         plugin(({ addUtilities }) => {
             addUtilities({
-                wrapper: 'h-full bg-white px-8',
                 log_btn: 'bg-secondary text-white px-28 py-3 rounded m-1 font-700',
                 labels: 'flex-row justify-start items-center gap-2',
                 label: 'text-dark_grey text-[16px]',
