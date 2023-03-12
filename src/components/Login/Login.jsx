@@ -4,7 +4,7 @@ import { View, Text, TextInput, TouchableOpacity } from 'react-native'
 import UserName from '../../contexts/userName'
 import tw from '../../library/tailwind'
 import { getSavedLogin, setSavedLogin } from '../../utils/remember'
-import { InputIcon, InputPass, OuterHeader, HxLogoIcon } from '../Resource'
+import { InputIcon, InputPass, OuterHeader, HxLogoIcon, Wrapper } from '../Resource'
 
 export default function Login({ navigation }) {
     const { userName, setUserName } = useContext(UserName)
@@ -29,7 +29,7 @@ export default function Login({ navigation }) {
     }
 
     return (
-        <View style={tw`wrapper`}>
+        <Wrapper>
             <HxLogoIcon position="start" />
             <OuterHeader title="Welcome Back!" subTitle="Login to your account" mb="30" />
 
@@ -84,11 +84,14 @@ export default function Login({ navigation }) {
             </View>
 
             <Text style={tw`${styles.have_account}`}>
-                Don't have account? <Text style={tw`${styles.register_now}`}>Register Now!</Text>
+                Don't have account?{' '}
+                <Text style={tw`${styles.register_now}`} onPress={() => navigation.navigate('registration')}>
+                    Register Now!
+                </Text>
             </Text>
 
             <Text>Name: {userName}</Text>
-        </View>
+        </Wrapper>
     )
 }
 
