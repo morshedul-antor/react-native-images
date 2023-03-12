@@ -1,31 +1,31 @@
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { StatusBar } from 'expo-status-bar'
-import { View } from 'react-native'
-import { Home, Login } from './src/components'
+import { SafeAreaView, Platform } from 'react-native'
 import { UserNameProvider } from './src/contexts/userName'
-import tw from './src/library/tailwind'
+import { HomeScreen, LoginScreen, RegistrationScreen } from './src/screens'
 
 const Stack = createNativeStackNavigator()
 
 export default function App() {
     return (
         <UserNameProvider>
-            {/* main view part */}
-            <View style={tw`${styles.root}`}>
+            {/******************** main view part ***********************/}
+            <SafeAreaView style={{ flex: 1, marginTop: Platform.OS === 'android' ? 40 : 10 }}>
                 <StatusBar style="auto" />
                 <NavigationContainer>
                     <Stack.Navigator>
-                        <Stack.Screen name="login" component={Login} options={{ headerShown: false }} />
-                        <Stack.Screen name="home" component={Home} options={{ headerShown: false }} />
+                        <Stack.Screen name="login" component={LoginScreen} options={{ headerShown: false }} />
+                        <Stack.Screen
+                            name="registration"
+                            component={RegistrationScreen}
+                            options={{ headerShown: false }}
+                        />
+                        <Stack.Screen name="home" component={HomeScreen} options={{ headerShown: false }} />
                     </Stack.Navigator>
                 </NavigationContainer>
-            </View>
-            {/* end */}
+            </SafeAreaView>
+            {/******************** end view part ***********************/}
         </UserNameProvider>
     )
-}
-
-const styles = {
-    root: 'w-full h-full mt-[40px]',
 }
