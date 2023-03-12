@@ -1,7 +1,10 @@
+import { Octicons } from '@expo/vector-icons'
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { useContext } from 'react'
 import { View, Text } from 'react-native'
 import UserName from '../../contexts/userName'
 import tw from '../../library/tailwind'
+import { HxLogoText, Wrapper } from '../Resource'
 
 export default function Home({ navigation }) {
     const { userName, setUserName } = useContext(UserName)
@@ -12,11 +15,18 @@ export default function Home({ navigation }) {
     }
 
     return (
-        <View style={tw`flex-1 justify-center items-center bg-deep_primary`}>
-            <Text style={tw`log_btn`} onPress={handleSubmit}>
-                Login Page
-            </Text>
-            <Text style={tw`text-white`}>Name: {userName}</Text>
-        </View>
+        <Wrapper>
+            {/* hero part */}
+            <View style={tw`bg-secondary`}>
+                <View>
+                    <Octicons name="three-bars" size={24} color="white" />
+                    <HxLogoText position="start" color="white" />
+                </View>
+                <View>
+                    <MaterialCommunityIcons name="login" size={24} color="white" />
+                    <Text onPress={handleSubmit}>Login</Text>
+                </View>
+            </View>
+        </Wrapper>
     )
 }
