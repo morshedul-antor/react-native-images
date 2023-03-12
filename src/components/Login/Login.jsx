@@ -6,7 +6,7 @@ import tw from '../../library/tailwind'
 import { getSavedLogin, setSavedLogin } from '../../utils/remember'
 import { InputIcon, InputPass, OuterHeader, HxLogoIcon } from '../Resource'
 
-export default function Login() {
+export default function Login({ navigation }) {
     const { userName, setUserName } = useContext(UserName)
 
     const [identifier, setIdentifier] = useState('')
@@ -22,6 +22,7 @@ export default function Login() {
     const handleSubmit = () => {
         if (identifier === '01927194591' && password === '1234') {
             setUserName('Morshedul Bari Antor')
+            navigation.navigate('home')
         } else {
             alert('wrong info!')
         }
