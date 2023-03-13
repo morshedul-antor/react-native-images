@@ -3,7 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { StatusBar } from 'expo-status-bar'
 import { SafeAreaView, Platform } from 'react-native'
 import { UserNameProvider } from './src/contexts/userName'
-import { HomeScreen, LoginScreen, RegistrationScreen } from './src/screens'
+import { HomeScreen } from './src/screens'
 
 const Stack = createNativeStackNavigator()
 
@@ -15,12 +15,6 @@ export default function App() {
                 <StatusBar style="auto" />
                 <NavigationContainer>
                     <Stack.Navigator>
-                        <Stack.Screen name="login" component={LoginScreen} options={{ headerShown: false }} />
-                        <Stack.Screen
-                            name="registration"
-                            component={RegistrationScreen}
-                            options={{ headerShown: false }}
-                        />
                         <Stack.Screen name="home" component={HomeScreen} options={{ headerShown: false }} />
                     </Stack.Navigator>
                 </NavigationContainer>

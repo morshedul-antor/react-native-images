@@ -36,10 +36,6 @@ module.exports = {
         plugin(({ addUtilities }) => {
             addUtilities({
                 log_btn: 'bg-secondary text-white px-28 py-3 rounded m-1 font-700',
-                labels: 'flex-row justify-start items-center gap-2',
-                label: 'text-dark_grey text-[16px]',
-                input: 'border-b-[1px] border-light_grey',
-                label_icons: 'flex-row justify-between',
             })
         }),
     ],
