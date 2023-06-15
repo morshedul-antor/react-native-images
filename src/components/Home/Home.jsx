@@ -4,12 +4,54 @@ import { View, Text, TouchableOpacity } from 'react-native'
 import UserName from '../../contexts/userName'
 import tw from '../../library/tailwind'
 import { Wrapper } from '../Resource'
+import * as DocumentPicker from 'expo-document-picker'
+import * as ImagePicker from 'expo-image-picker'
+import * as FileSystem from 'expo-file-system'
 
 export default function Home({ navigation }) {
     const { userName, setUserName } = useContext(UserName)
 
     const handleSubmit = () => {
         setUserName('Welcome!')
+    }
+
+    const handleImageUpload = async () => {
+        try {
+            const result = await ImagePicker.launchImageLibraryAsync({
+                mediaTypes: ImagePicker.MediaTypeOptions.Images,
+                allowsEditing: true,
+                quality: 1,
+            })
+
+            if (!result.canceled) {
+                const fileUri = result.assets[0].uri
+
+                // Read the file using expo-file-system
+                const fileContent = await FileSystem.readAsStringAsync(fileUri, {
+                    encoding: FileSystem.EncodingType.Base64,
+                })
+
+                // Create a FormData object to send the file data
+                const formData = new FormData()
+                formData.append('image', fileContent)
+
+                // Send the file to the backend server using axios
+                const response = await fetch(`api`, {
+                    headers: {
+                        Accept: 'appllication/json',
+                        type: 'image/jpeg',
+                    },
+                    method: 'POST',
+                    body: formData,
+                })
+
+                if (response.ok) {
+                    console.log('File uploaded successfully:', response.data)
+                }
+            }
+        } catch (error) {
+            console.error('Error uploading file:', error)
+        }
     }
 
     return (
@@ -19,7 +61,7 @@ export default function Home({ navigation }) {
             <Text style={tw`font-700 text-[18px] mb-[10px]`}>React Native Expo Boilerplate</Text>
 
             <TouchableOpacity>
-                <Text style={tw`log_btn`} onPress={handleSubmit}>
+                <Text style={tw`log_btn`} onPress={handleImageUpload}>
                     Press
                 </Text>
             </TouchableOpacity>
