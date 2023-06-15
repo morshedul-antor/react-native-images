@@ -54,6 +54,44 @@ export default function Home({ navigation }) {
         }
     }
 
+    // const handleFileUpload = async () => {
+    //     try {
+    //         const file = await DocumentPicker.pick({
+    //             copyToCacheDirectory: true,
+    //             type: 'application/pdf',
+    //         })
+
+    //         if (!file.canceled) {
+    //             const fileUri = file.uri
+
+    //             // Read the file using expo-file-system
+    //             const fileData = await FileSystem.readAsStringAsync(fileUri, {
+    //                 encoding: FileSystem.EncodingType.Base64,
+    //             })
+
+    //             // Create a FormData object to send the file data
+    //             const formData = new FormData()
+    //             formData.append('pdf', fileData)
+
+    //             // Send the file to the backend server using axios
+    //             const response = await fetch(`api`, {
+    //                 headers: {
+    //                     Accept: 'appllication/json',
+    //                     type: 'file/pdf',
+    //                 },
+    //                 method: 'POST',
+    //                 body: formData,
+    //             })
+
+    //             if (response.ok) {
+    //                 console.log('File uploaded successfully:', response.data)
+    //             }
+    //         }
+    //     } catch (error) {
+    //         console.error('Error uploading file:', error)
+    //     }
+    // }
+
     return (
         // <Wrapper>
         <View style={tw`flex-1 justify-center items-center bg-white`}>
