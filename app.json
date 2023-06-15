@@ -1,7 +1,7 @@
 {
     "expo": {
-        "name": "Image",
-        "slug": "image",
+        "name": "ReactNative",
+        "slug": "reactnative",
         "version": "1.0.0",
         "orientation": "portrait",
         "icon": "./src/assets/icons/icon.png",
@@ -19,8 +19,7 @@
             "adaptiveIcon": {
                 "foregroundImage": "./src/assets/icons/adaptive-icon.png",
                 "backgroundColor": "#ffffff"
-            },
-            "package": "com.antorr25.healthx"
+            }
         },
         "web": {
             "favicon": "./src/assets/icons/favicon.png"
