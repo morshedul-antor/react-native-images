@@ -30,7 +30,7 @@ export default function Home() {
         })
 
         try {
-            const response = await fetch(`https://devec.healthxbd.com/api/v1/admin/s3/profile-pic/1`, {
+            const response = await fetch(`api`, {
                 headers: {
                     Accept: 'application/json',
                 },
