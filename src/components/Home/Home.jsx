@@ -47,7 +47,7 @@ export default function Home() {
 
     return (
         <View style={tw`flex-1 justify-center items-center bg-white`}>
-            {selectedImageUri && <Image source={{ uri: selectedImageUri }} style={{ width: 200, height: 200 }} />}
+            {imageUri && <Image source={{ uri: imageUri }} style={{ width: 200, height: 200 }} />}
 
             <TouchableOpacity>
                 <Text style={tw`log_btn`} onPress={handleImageUpload}>
